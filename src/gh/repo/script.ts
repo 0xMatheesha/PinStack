@@ -2,7 +2,7 @@ import { Hono } from '@hono/hono'
 import { escapeXml, getLangColor, topLang } from "../../functions.ts";
 
 const api = 'https://api.github.com/repos/'
-const key = Deno.env.get('GH_TOKEN')
+//const key = Deno.env.get('GH_TOKEN')
 
 export default function getGhRepo(app: Hono) {
   app.get('/gh/repo/:owner/:repo', async (c) => {
@@ -25,7 +25,7 @@ export default function getGhRepo(app: Hono) {
     const repo_req = await fetch(`${api}${owner}/${repo}`, {
       headers: {
         'User-Agent': 'PinStack - @ItsMatheesha[Github]',
-        'Authorization': `Bearer ${key}`
+        // 'Authorization': `Bearer ${key}`
       }
     })
     //if the api request failed
